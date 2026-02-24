@@ -144,9 +144,7 @@ MainJobsContainer.addEventListener("click", function (event) {
             job_description
         }
 
-        // card parent node
-        const JobCardNodeParent = event.target.parentNode.parentNode.parentNode;
-   
+       
 
         const CheckExists = InterviewJobsCollection.find(item => item.company_name == company_name);
      
@@ -193,8 +191,7 @@ MainJobsContainer.addEventListener("click", function (event) {
             job_description
         }
 
-        const JobCardNodeParent = event.target.parentNode.parentNode.parentNode;
-
+        
         const CheckExists = RejectedJobsCollection.find(item => item.company_name == company_name);
 
 
