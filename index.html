@@ -1,0 +1,200 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Job Application Tracker</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <!-- font  cdn-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&display=swap" rel="stylesheet">
+     
+    <!-- font-awesome  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+        integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        * {
+
+            font-family: "Geist", sans-serif;
+
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <!-- header section  -->
+    <header class="w-10/12 mx-auto mt-[60px]">
+        <h1
+            class="text-[#002C5C] max-[361px]:text-[24px] max-[376px]:text-[25px] max-[391px]:text-[26px] max-[415px]:text-[28px] max-[431px]:text-[29px] sm:text-[27px] md:text-[32px] font-bold">
+            Job Application Tracker</h1>
+        <!-- Job Application Stats  -->
+        <div class="pt-5 grid grid-cols-3 gap-4">
+
+            <div class="job_application_status_card p-5 rounded-xl shadow-[0_8px_24px_rgba(0,0,0,0.08)]">
+                <p class="text-[14px] font-medium text-[#323B49]">Total</p>
+                <h2 class="text-2xl font-bold text-[#002C5C]" id="total_jobs_count">3</h2>
+            </div>
+            <div class="job_application_status_card p-5 rounded-xl shadow-[0_8px_24px_rgba(0,0,0,0.08)]">
+                <p class="text-[14px] font-medium text-[#323B49]">Interview</p>
+                <h2 class="text-2xl font-bold text-[#10B981]" id="total_interview_jobs_count">0</h2>
+            </div>
+            <div class="job_application_status_card p-5 rounded-xl shadow-[0_8px_24px_rgba(0,0,0,0.08)]">
+                <p class="text-[14px] font-medium text-[#323B49]">Rejected</p>
+                <h2 class="text-2xl font-bold text-[#EF4444]" id="total_rejected_jobs_count">0</h2>
+            </div>
+
+        </div>
+    </header>
+    <!-- Divider  -->
+    <div class="divider w-10/12 mx-auto mt-7">
+        <hr class="text-[#e6e7e9]">
+    </div>
+
+    <!-- jobs section  -->
+    <main class="w-10/12 mx-auto mt-7 mb-15">
+        <!-- jobs headline  -->
+        <div class="jobs-headline flex justify-between items-center">
+            <h3 class="text-[20px] font-semibold text-[#002C5C]">Available Jobs</h3>
+            <p class="text-[16px] font-medium text-[#64748B]">
+
+                <span id="AllJobsCount" class="">
+                    <span id="total_jobs">3</span> Jobs
+
+                </span>
+
+
+                <span id="AllInterviewJobsCount" class="hidden">
+                    <span id="all_interview_jobs_count">8</span> of <span id="total_jobs">3</span> Jobs
+                </span>
+                <span id="AllRejectJobsCount" class="hidden">
+                    <span id="all_reject_jobs_count">8</span> of <span id="total_jobs">3</span> Jobs
+                </span>
+            </p>
+        </div>
+        <!-- jobs body section  -->
+        <div class="jobs-body pt-4" id="full_jobs_container">
+
+            <div class="toogle-section space-x-3">
+                <button onclick="ToogleShow('All_jobs','jobs_tabing_btn')" id="jobs_tabing_btn"
+                    class="bg-[#3B82F6] px-7 py-2 text-[12px] text-white rounded cursor-pointer">All</button>
+                <button onclick="ToogleShow('interview_jobs','interview_jobs_tabing_btn')"
+                    id="interview_jobs_tabing_btn" class="cursor-pointer rounded">Interview</button>
+                <button onclick="ToogleShow('rejected_jobs','rejected_jobs_tabing_btn')" id="rejected_jobs_tabing_btn"
+                    class="cursor-pointer rounded">Rejected</button>
+            </div>
+
+            <!--all jobs cards  -->
+            <div class="jobs-cards pt-4 space-y-10" id="All_jobs">
+                <!-- single job card  -->
+                <div class="jobs-card card_bg p-5 rounded shadow-[0_8px_24px_rgba(0,0,0,0.14)]">
+                    <div class="job-header flex justify-between items-center">
+                        <div class="job-header-info">
+                            <h3 class="company-name text-[#002C5C] text-[18px] font-semibold">Mobile First Corp</h3>
+                            <p class="job-title text-[#64748B] pt-1">React Native Developer</p>
+                        </div>
+                        <div class="job-delete-button">
+                            <i class="fa fa-trash text-[#64748B] text-[16px] delete_item"></i>
+                        </div>
+
+                    </div>
+                    <!-- other basic info  -->
+                    <p class="text-[#64748B] pt-4 job_meta">Remote • Full-time • $130,000 - $175,000</p>
+                    <div class="pt-4 space-y-2">
+                        <button class="text-[#002C5C] job_status bg-[#EEF4FF] text-[14px] p-2 font-medium rounded">Not
+                            Applied</button>
+                        <p class="text-[#323B49] text-[14px] job_description">Build cross-platform mobile applications
+                            using React
+                            Native. Work on products used by millions of users worldwide.</p>
+                    </div>
+
+                    <div class="action-btn pt-4">
+                        <button
+                            class="text-[#10B981] interview-btn cursor-pointer font-semibold text-[14px] rounded px-3 py-1 border border-[#10B981]">Interview</button>
+                        <button
+                            class="text-[#EF4444] rejected-btn cursor-pointer font-semibold text-[14px] rounded px-3 py-1 border border-[#EF4444]">Rejected</button>
+                    </div>
+                </div>
+                <!-- single job card  -->
+                <div class="jobs-card p-5  rounded shadow-[0_8px_24px_rgba(0,0,0,0.14)]">
+                    <div class="job-header flex justify-between items-center">
+                        <div class="job-header-info">
+                            <h3 class="company-name text-[#002C5C] text-[18px] font-semibold">WebFlow Agency</h3>
+                            <p class="job-title text-[#64748B] pt-1">Web Designer & Developer</p>
+                        </div>
+                        <div class="job-delete-button">
+                            <i class="fa fa-trash text-[#64748B] text-[16px] delete_item"></i>
+                        </div>
+
+                    </div>
+                    <!-- other basic info  -->
+                    <p class="text-[#64748B] pt-4 job_meta">Los Angeles, CA • Part-time • $80,000 - $120,000</p>
+                    <div class="pt-4 space-y-2">
+                        <button class="text-[#002C5C] job_status bg-[#EEF4FF] text-[14px] p-2 font-medium rounded">Not
+                            Applied</button>
+                        <p class="text-[#323B49] text-[14px] job_description">Create stunning web experiences for
+                            high-profile clients. Must have portfolio and experience with modern web design trends.</p>
+                    </div>
+
+                    <div class="action-btn pt-4">
+                        <button
+                            class="text-[#10B981] interview-btn cursor-pointer font-semibold text-[14px] rounded px-3 py-1 border border-[#10B981]">Interview</button>
+                        <button
+                            class="text-[#EF4444] rejected-btn cursor-pointer font-semibold text-[14px] rounded px-3 py-1 border border-[#EF4444]">Rejected</button>
+                    </div>
+                </div>
+                <!-- single job card  -->
+                <div class="jobs-card p-5  rounded shadow-[0_8px_24px_rgba(0,0,0,0.14)]">
+                    <div class="job-header flex justify-between items-center">
+                        <div class="job-header-info">
+                            <h3 class="company-name text-[#002C5C] text-[18px] font-semibold">DataViz Solutions</h3>
+                            <p class="job-title text-[#64748B] pt-1">Data Visualization Specialist</p>
+                        </div>
+                        <div class="job-delete-button">
+                            <i class="fa fa-trash text-[#64748B] text-[16px] delete_item"></i>
+                        </div>
+
+                    </div>
+                    <!-- other basic info  -->
+                    <p class="text-[#64748B] pt-4 job_meta">Boston, MA • Full-time • $125,000 - $165,000</p>
+                    <div class="pt-4 space-y-2">
+                        <button class="text-[#002C5C] job_status bg-[#EEF4FF] text-[14px] p-2 font-medium rounded">Not
+                            Applied</button>
+                        <p class="text-[#323B49] text-[14px] job_description">Transform complex data into compelling
+                            visualizations. Required skills: D3.js, React, and strong analytical thinking.
+                        </p>
+                    </div>
+
+                    <div class="action-btn pt-4">
+                        <button
+                            class="text-[#10B981] interview-btn cursor-pointer font-semibold text-[14px] rounded px-3 py-1 border border-[#10B981]">Interview</button>
+                        <button
+                            class="text-[#EF4444] rejected-btn cursor-pointer font-semibold text-[14px] rounded px-3 py-1 border border-[#EF4444]">Rejected</button>
+                    </div>
+                </div>
+
+
+            </div>
+
+            <!-- Inteview jobs body -->
+            <div class="inteview-jobs-body pt-4 space-y-10 hidden" id="interview_jobs">
+                
+            </div>
+
+            <!-- Rejected jobs body-->
+            <div class="inteview-jobs-body pt-4 space-y-10 hidden" id="rejected_jobs">
+              
+            </div>
+
+        </div>
+    </main>
+
+
+    <script src="script.js"></script>
+</body>
+
+</html>
