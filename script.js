@@ -231,7 +231,7 @@ MainJobsContainer.addEventListener("click", function (event) {
          CountCardsItem("interview_jobs");
         CountCardsItem("rejected_jobs");
        
-        alert("Successfully removed");
+        alert("The item has been removed successfully.");
 
         JobCardNode.removeChild(ChildNodeRemove);
 
