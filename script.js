@@ -1,4 +1,3 @@
-// console.log("hello");
 
 let InterviewJobsCollection = [];
 let RejectedJobsCollection = [];
@@ -100,7 +99,7 @@ function ToogleShow(JobsSectionId, TabingId) {
     RejectedjobsTabingBtn.classList.remove("bg-[#3B82F6]", "px-7", "py-2", "text-[12px]", "text-white");
 
     const ActiveBtn = document.getElementById(TabingId);
-    console.log(ActiveBtn);
+    
     ActiveBtn.classList.add("bg-[#3B82F6]", "px-7", "py-2", "text-[12px]", "text-white");
 
 
@@ -108,7 +107,7 @@ function ToogleShow(JobsSectionId, TabingId) {
     // section hide show
     JobSectionHideShow(JobsSectionId);
 
-    // console.log(id);
+  
 
 
 
@@ -149,7 +148,7 @@ MainJobsContainer.addEventListener("click", function (event) {
    
 
         const CheckExists = InterviewJobsCollection.find(item => item.company_name == company_name);
-        // console.log(CheckExists);
+     
         if (!CheckExists) {
 
             InterviewJobsCollection.push(collectObj);
@@ -168,8 +167,6 @@ MainJobsContainer.addEventListener("click", function (event) {
 
 
 
-
-        // console.log(event.target.parentNode.parentNode);
 
     } else if (event.target.classList.contains("rejected-btn")) {
         const JobCardNode = event.target.parentNode.parentNode;
@@ -202,9 +199,6 @@ MainJobsContainer.addEventListener("click", function (event) {
 
         // InterviewJobsCollection = [];
 
-        // console.log(InterviewJobsCollection);
-
-        // console.log(CheckExists);
         if (!CheckExists) {
 
             RejectedJobsCollection.push(collectObj);
@@ -237,21 +231,16 @@ MainJobsContainer.addEventListener("click", function (event) {
          CountCardsItem("interview_jobs");
         CountCardsItem("rejected_jobs");
        
-         console.log(company_name);
+        alert("Successfully removed");
 
         JobCardNode.removeChild(ChildNodeRemove);
 
- CountCardsItem("All_jobs");
+         CountCardsItem("All_jobs");
     
          EmptyJobDesign();
     
-        // console.log(JobCardNode)
+       
 
-      
-
-
-        // CountCardsItem("rejected_jobs");
-        // TabingItemCount("rejected_jobs_tabing_btn");
     }
 
 
@@ -323,7 +312,7 @@ function EmptyJobDesign(){
     }
     
     if(RejectedJobsCollection.length === 0){
-        console.log("hello");
+    
        document.getElementById("rejected_jobs").innerHTML = EmptyHtmlDesign;
     }
     
