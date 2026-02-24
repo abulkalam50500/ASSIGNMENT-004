@@ -32,6 +32,7 @@ const all_reject_jobs_count_span = document.getElementById("all_reject_jobs_coun
 const total_jobs_span = document.querySelectorAll("#total_jobs");
 
 
+// This function updates the total job counts based on the given section id.
 function CountCardsItem(id) {
 
     const totalCount = document.querySelector("#All_jobs").children.length;
