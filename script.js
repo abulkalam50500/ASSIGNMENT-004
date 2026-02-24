@@ -282,7 +282,7 @@ function DataRandaring(InterviewJobsCollection, AllInterviewJobsSection, DivLeft
    
        EmptyJobDesign();
 
-    // EmptyJobDesign(AllInterviewJobsSection);
+
 }
 
 function EmptyJobDesign(){
